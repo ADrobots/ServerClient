@@ -1,9 +1,6 @@
 package copy;
 
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -16,14 +13,10 @@ public class MultiThreadServer implements Runnable{
 	
 	public void run() {
 		try {
-			/*PrintStream printStream=new PrintStream(socket.getOutputStream());
+			PrintStream printStream=new PrintStream(socket.getOutputStream());
 			for(int i=100; i>=0;i--) {
 				printStream.println(i+" ... ");
-			}*/
-			
-			InputStream inputStream=socket.getInputStream();
-			DataInputStream in=new DataInputStream(inputStream);
-			System.out.println(in.readUTF());
+			}
 			
 		}catch (IOException e) {
 			System.out.println(e);
@@ -36,6 +29,19 @@ public class MultiThreadServer implements Runnable{
 		while(true) {
 			Socket socket=serverSocket.accept();
 	        System.out.println("Connected");
+			InputStream inputStream=socket.getInputStream();
+			OutputStream outputStream=socket.getOutputStream();
+
+			DataInputStream in=new DataInputStream(inputStream);
+			DataOutputStream out=new DataOutputStream(outputStream);
+
+			String line = null;
+			line = in.readUTF();
+			System.out.println(line);
+			out.writeUTF(line);
+			out.flush();
+
+
 			new Thread(new MultiThreadServer(socket));
 		}
 	}

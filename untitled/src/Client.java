@@ -9,7 +9,7 @@ public class Client extends Thread{
     private DataOutputStream out;
     private DataInputStream in;
 
-    private Commands commands=new Commands();
+    //private Commands commands=new Commands();
 
     public Client() throws IOException{
         client=new Socket(serverName, 5050);

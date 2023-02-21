@@ -1,0 +1,2 @@
+создание репозитория через консоль:
+	curl -u 'ADrobots' https://api.github.com/user/repos -d'{"name":"ServerClient"}'
