@@ -29,7 +29,6 @@ public class Server {
                 System.out.println(line);
                 out.writeUTF(line);
                 out.flush();
-                socket.close();
             }
 
 
