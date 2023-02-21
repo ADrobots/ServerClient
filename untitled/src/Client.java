@@ -3,7 +3,7 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class Client extends Thread{
-    private static String serverName="127.0.0.1";
+    private static String serverName="192.168.0.7";
     private Socket client;
 
     private DataOutputStream out;

@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Client {
     public static void main(String[] args) {
-        String address="localhost";
+        String address="192.168.0.7";
         int serverSocket=5050;
         try {
             InetAddress ipAddress=InetAddress.getByName(address);

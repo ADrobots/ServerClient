@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -22,12 +23,13 @@ public class Server {
             DataInputStream in=new DataInputStream(inputStream);
             DataOutputStream out=new DataOutputStream(outputStream);
 
-            while (true) {
+            while (true) {            	
                 String line = null;
                 line = in.readUTF();
                 System.out.println(line);
                 out.writeUTF(line);
                 out.flush();
+                socket.close();
             }
 
 
