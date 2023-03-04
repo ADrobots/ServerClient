@@ -16,13 +16,21 @@ class ServerClientThread extends Thread {
         try{
             DataInputStream inStream = new DataInputStream(serverClient.getInputStream());
             DataOutputStream outStream = new DataOutputStream(serverClient.getOutputStream());
-            String clientMessage="", serverMessage="";
-            while(!clientMessage.equals("bye")){
+            //String clientMessage="", serverMessage="";
+            /*while(!clientMessage.equals("bye")){
                 clientMessage=inStream.readUTF();
                 System.out.println("From Client-" +clientNo+ ": Number is :"+clientMessage);
                 squre = Integer.parseInt(clientMessage) * Integer.parseInt(clientMessage);
                 serverMessage="From Server to Client-" + clientNo + " Square of " + clientMessage + " is " +squre;
                 outStream.writeUTF(serverMessage);
+                outStream.flush();
+            }*/
+
+            String line = "";
+            while (!line.equals("exit")) {
+                line = inStream.readUTF();
+                System.out.println("Client No:"+clientNo+" "+line);
+                outStream.writeUTF(line);
                 outStream.flush();
             }
             inStream.close();
