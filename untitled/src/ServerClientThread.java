@@ -1,8 +1,9 @@
-package copy;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
+
+import field.Field;
+import gamer.Gamer;
 
 class ServerClientThread extends Thread {
     Socket serverClient;
@@ -33,6 +34,7 @@ class ServerClientThread extends Thread {
                 outStream.writeUTF(line);
                 outStream.flush();
             }
+            System.out.println("Close stream");
             inStream.close();
             outStream.close();
             serverClient.close();

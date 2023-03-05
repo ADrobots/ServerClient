@@ -1,5 +1,3 @@
-package copy;
-
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -10,7 +8,7 @@ import java.util.Scanner;
 public class TCPClient {
     public static void main(String[] args) throws Exception {
         try{
-            Socket socket=new Socket("192.168.0.49",8888);
+            Socket socket=new Socket("192.168.0.7",8888);
             DataInputStream inStream=new DataInputStream(socket.getInputStream());
             DataOutputStream outStream=new DataOutputStream(socket.getOutputStream());
             //BufferedReader br=new BufferedReader(new InputStreamReader(System.in));

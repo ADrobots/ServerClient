@@ -1,7 +1,3 @@
-/Client.class
-/Commands.class
-/Main.class
-/Server.class
-/copy/
-/field/
-/gamer/
+/test/
+/ServerGameThread.class
+/GameClient.class

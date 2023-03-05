@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Field {
     private static Field pole;
-    String[][] field=new String[3][3];
+    public String[][] field=new String[3][3];
 
     void printField(){
         for (int i=0;i< field.length;i++){
